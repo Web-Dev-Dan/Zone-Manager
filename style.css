@@ -25,6 +25,10 @@ html, body {
 }
 
 /* Universal */
+.text-emphasis {
+    font-weight: 900;
+}
+
 .btn-dark {
     background-color: var(--color-dark);
     color: white;
@@ -172,7 +176,7 @@ html, body {
 .main {
     width: 100%;
     height: calc(100vh - 20rem);
-    min-height: 30rem;
+    min-height: 40rem;
     padding: 0 4rem;
     display: flex;
     flex-direction: column;
@@ -184,11 +188,9 @@ html, body {
 .user-info-modal {
     background-color: white;
     width: 100%;
-    max-width: 50rem;
-    height: calc(100vh - 20rem);
-    min-height: 50rem;
+    max-width: 90rem;
     align-self: flex-end;
-    padding: 1rem 2rem 2rem 2rem;
+    padding: 1rem 2rem 3rem 2rem;
     border-radius: .5rem;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     position: relative;
@@ -200,7 +202,7 @@ html, body {
     color: var(--color-light);
     font-size: 3rem;
     text-align: center;
-    margin: 1.5rem;
+    margin: 1.5rem 0 3rem 0;
     background: linear-gradient(to right, rgb(63, 119, 184), rgb(98, 173, 238));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -208,16 +210,18 @@ html, body {
 
 .user-info-modal--profile {
     width: 100%;
-    height: 100%;
-    display: grid;
+    display: flex;
+    justify-content: space-between;
+    /* display: grid;
     grid-template-columns: repeat(6, auto);
     grid-template-rows: repeat(2, auto);
-    grid-gap: 1rem;
+    grid-gap: 1rem; */
     flex: 1;
 }
 
 .profile-box {
     background-color: #f3f3f3;
+    min-width: 20rem;
     padding: 2rem;
     display: flex;
     flex-direction: column;
@@ -239,6 +243,10 @@ html, body {
     font-weight: 600;
     text-transform: uppercase;
     color: var(--color-dark);
+}
+
+.profile-box-inner {
+    height: 16rem;
 }
 
 /* Clock */
@@ -294,19 +302,45 @@ html, body {
     z-index: 150;
 }
 
-.date-text {
+.date-text, .city-text {
     color: var(--color-dark);
     font-size: 1.5rem;
     font-weight: 300;
     margin: 1rem 0;
     text-align: center;
+    line-height: 1.5;
 }
 
-.time-text {
+.time-text, .temperature-text {
     color: var(--color-dark);
     font-size: 3rem;
     font-weight: 600;
     text-align: center;
+}
+
+.weather-icon-box {
+    width: 12rem;
+    height: 12rem;
+    margin: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.weather-icon-box--icon {
+    background: linear-gradient(to right, rgb(63, 119, 184), rgb(98, 173, 238));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 10rem;
+}
+
+.weather-text {
+    color: var(--color-dark);
+    font-size: 1.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-top: .5rem;
 }
 
 
