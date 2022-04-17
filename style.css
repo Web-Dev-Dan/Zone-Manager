@@ -21,6 +21,7 @@ html, body {
     background: linear-gradient(to right, rgb(63, 119, 184), rgb(98, 173, 238));
     width: 100vw;
     min-height: 100vh;
+    overflow-x: hidden;
 }
 
 /* Universal */
