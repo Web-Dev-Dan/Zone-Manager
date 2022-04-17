@@ -34,14 +34,28 @@
             </div>
             <div class="nav-user">
                 <!-- <button class="btn-dark">Get started</button> -->
-                <button class="btn-dark btn-round">
+                <button id="openUserProfileBtn" class="btn-dark btn-round">
                     <i class="btn-icon fa-solid fa-user"></i>
                 </button>
+                <div id="profileNotificationBubble" class="nav-notification">
+                    <div class="nav-notification--pointer"></div>
+                    <p class="nav-notification--text">You can update and check your personal information here.</p>
+                    <button id="closeProfileNotificationBtn" class="btn-dark btn-small">Got It!</button>
+                </div>
             </div>
         </nav>
 
         <!-- Main -->
         <main class="main">
+            <div id="userProfileModal" class="user-info-modal element-hidden">
+                <button id="closeUserProfileBtn" class="close-modal-btn">
+                    <i class="close-modal-btn--icon fa-solid fa-xmark"></i>
+                </button>
+                <h2 class="user-info-modal--header">My Profile</h2>
+            </div>
+        </main>
+
+        <main class="main-menu element-hidden">
 
         </main>
 
