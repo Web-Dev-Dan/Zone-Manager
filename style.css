@@ -40,6 +40,13 @@ html, body {
     transition: all .2s;
 }
 
+.btn-small {
+    padding: .5rem 1rem;
+    font-size: 1.6rem;
+    width: 16rem;
+    height: 4rem;
+}
+
 .btn-round {
     width: 5rem;
     height: 5rem;
@@ -62,6 +69,25 @@ html, body {
     transform: scale(95%);
 }
 
+.close-modal-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 4rem;
+    height: 4rem;
+    background-color: transparent;
+    border: none;
+    color: var(--color-dark);
+}
+
+.close-modal-btn--icon {
+    font-size: 3rem;
+}
+
+.close-modal-btn:hover {
+    cursor: pointer;
+}
+
 /* Navigation */
 .nav {
     width: 100%;
@@ -78,6 +104,10 @@ html, body {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.nav-user {
+    position: relative;
 }
 
 .nav-title--icon {
@@ -105,10 +135,78 @@ html, body {
     font-size: 2.95rem;
 }
 
+.nav-notification {
+    background-color: white;
+    width: 30rem;
+    padding: 2rem;
+    position: absolute;
+    top: 11rem;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1rem;
+}
 
-/* Main */
+.nav-notification--pointer {
+    position: absolute;
+    top: -3.5rem;
+    right: 1rem;
+    border: 1.5rem solid transparent;
+    border-bottom: 2rem solid white;
+}
+
+.nav-notification--text {
+    color: black;
+    font-size: 1.8rem;
+    font-weight: 300;
+    text-align: center;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+}
+
+
+
+/* Main (Home) */
 .main {
-    /* background-color: green; */
+    width: 100%;
+    height: calc(100vh - 20rem);
+    min-height: 30rem;
+    padding: 0 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.user-info-modal {
+    background-color: white;
+    width: 100%;
+    max-width: 50rem;
+    height: calc(100vh - 20rem);
+    min-height: 30rem;
+    align-self: flex-end;
+    padding: 1rem;
+    border-radius: .5rem;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    position: relative;
+}
+
+.user-info-modal--header {
+    color: var(--color-light);
+    font-size: 3rem;
+    text-align: center;
+    margin: 1.5rem;
+    background: linear-gradient(to right, rgb(63, 119, 184), rgb(98, 173, 238));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+
+/* Main (Menu) */
+.main-menu {
+    background-color: red;
     width: 100%;
     height: calc(100vh - 20rem);
     min-height: 30rem;
@@ -128,6 +226,12 @@ html, body {
     font-size: 1.8rem;
     font-weight: 300;
 }
+
+.element-hidden {
+    display: none;
+}
+
+
 
 
 /* MEDIA QUERIES */
@@ -156,8 +260,21 @@ html, body {
         font-size: 2.2rem;
     }
 
+    /* Notifications */
+    .nav-notification {
+        top: 8.5rem;
+    }
+    
+    .nav-notification--pointer {
+        top: -3.2rem;
+        right: .5rem;
+    }
+
     /* Main */
     .main {
+        height: calc(100vh - 15rem);
+    }
+    .user-info-modal {
         height: calc(100vh - 15rem);
     }
 
@@ -196,5 +313,11 @@ html, body {
     }
     .nav-title--inner-icon {
         font-size: 1.8rem;
+    }
+
+
+    /* Main */
+    .main {
+        padding: 0 2rem;
     }
   }
