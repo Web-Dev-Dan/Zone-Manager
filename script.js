@@ -34,7 +34,7 @@ function toggleUserProfile() {
     }
 }
 
-// User Profile Notification Bubble
+// 👨‍💻 User Profile Notification Bubble
 const closeProfileNotificationBtn = document.getElementById('closeProfileNotificationBtn');
 const profileNotificationBubble = document.getElementById('profileNotificationBubble');
 
@@ -43,3 +43,75 @@ closeProfileNotificationBtn.addEventListener('click', closeProfileNotificationBu
 function closeProfileNotificationBubble() {
     profileNotificationBubble.classList.add('element-hidden');
 }
+
+
+
+
+// ----- ⏰📆 DATE AND TIME 📆⏰ -----
+
+// 📆 Date
+const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
+const dateText = document.getElementById('dateText');
+
+function calculateDate() {
+    const currentFullDate = new Date();
+    let currentDay = days[currentFullDate.getDay()];
+    let currentDate = currentFullDate.getDate();
+    let currentMonth = months[currentFullDate.getMonth()];
+    let currentYear = currentFullDate.getFullYear();
+
+    dateText.textContent = `${currentDay} ${currentDate} ${currentMonth}, ${currentYear}.`;
+}
+
+// ⏰ Clock
+const clockFingerHours = document.getElementById('clockFingerHours');
+const clockFingerMinutes = document.getElementById('clockFingerMinutes');
+const clockFingerSeconds = document.getElementById('clockFingerSeconds');
+
+const timeText = document.getElementById('timeText');
+
+function updateUserClock() {
+    let currentDate = new Date();
+    let currentHours = currentDate.getHours();
+    let currentMinutes = currentDate.getMinutes();
+    let currentSeconds = currentDate.getSeconds();
+
+    let degreesHours = currentHours * 30;
+    let degreeMinutes = currentMinutes * 6;
+    let degreeSeconds = currentSeconds * 6;
+
+    // Check Hours
+    if (currentHours < 10) {
+        currentHours = `0${currentHours}`;
+        clockFingerHours.style.transform = `translateX(-50%) rotate(${degreesHours}deg)`
+    } else {
+        clockFingerHours.style.transform = `translateX(-50%) rotate(${degreesHours}deg)`
+    }
+
+    // Check Minutes
+    if (currentMinutes < 10) {
+        currentMinutes = `0${currentMinutes}`;
+        clockFingerMinutes.style.transform = `translateX(-50%) rotate(${degreeMinutes}deg)`
+    } else {
+        clockFingerMinutes.style.transform = `translateX(-50%) rotate(${degreeMinutes}deg)`
+    }
+
+    // Check Seconds
+    if (currentSeconds < 10) {
+        currentSeconds = `0${currentSeconds}`;
+        clockFingerSeconds.style.transform = `translateX(-50%) rotate(${degreeSeconds}deg)`
+    } else {
+        clockFingerSeconds.style.transform = `translateX(-50%) rotate(${degreeSeconds}deg)`
+    }
+
+    timeText.textContent = `${currentHours}:${currentMinutes}:${currentSeconds}`;
+}
+
+// Update Time and Date each second
+setInterval(() => {
+    calculateDate();
+    updateUserClock();
+}, 1000);
+
