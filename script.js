@@ -3,6 +3,7 @@ function updateYear() {
     let currentDate = new Date();
     let currentYear = currentDate.getFullYear();
 
+    // Update Year in Footer:
     const currentYearText = document.getElementById('currentYear');
     currentYearText.textContent = currentYear;
 }
@@ -22,6 +23,7 @@ closeUserProfileBtn.addEventListener('click', toggleUserProfile);
 function toggleUserProfile() {
     if (userProfileModal.classList.contains('element-hidden')) {
         userProfileModal.classList.remove('element-hidden');
+        getWeather();
     } else {
         userProfileModal.classList.add('element-hidden');
     }
@@ -115,3 +117,27 @@ setInterval(() => {
     updateUserClock();
 }, 1000);
 
+
+// ----- 🌤 Weather API 🌤 -----
+const weatherText = document.getElementById('weatherText');
+// const weatherIcon; 
+const cityText = document.getElementById('cityText');
+const temperatureText = document.getElementById('temperatureText');
+
+const apiKey = '84f6f4d0561b37b364b619246ea847fa';
+let cityName = 'London';
+
+function getWeather() {
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=metric`)
+        .then(response => {
+            return response.json();
+        })
+        .then(data => {
+            weatherText.textContent = data.weather[0].main;
+            cityText.textContent = data.name;
+            temperatureText.textContent = `${Math.round(data.main.temp)}°C`;
+        })
+        .catch(error => {
+            console.error(error);
+        })
+}
