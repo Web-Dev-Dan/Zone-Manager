@@ -47,8 +47,6 @@ function closeProfileNotificationBubble() {
 }
 
 
-
-
 // ----- ⏰📆 DATE AND TIME 📆⏰ -----
 
 // 📆 Date
@@ -120,7 +118,6 @@ setInterval(() => {
 
 // ----- 🌤 Weather API 🌤 -----
 const weatherText = document.getElementById('weatherText');
-// const weatherIcon; 
 const cityText = document.getElementById('cityText');
 const temperatureText = document.getElementById('temperatureText');
 
