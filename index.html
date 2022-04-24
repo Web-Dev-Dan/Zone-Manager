@@ -23,6 +23,7 @@
 
 <body>
     <div class="container">
+
         <!-- Navigation -->
         <nav class="nav">
             <div class="nav-title">
@@ -33,7 +34,6 @@
                 </div>
             </div>
             <div class="nav-user">
-                <!-- <button class="btn-dark">Get started</button> -->
                 <button id="openUserProfileBtn" class="btn-dark btn-round">
                     <i class="btn-icon fa-solid fa-user"></i>
                 </button>
@@ -45,73 +45,18 @@
             </div>
         </nav>
 
+
         <!-- Main -->
         <main class="main">
-            <!-- User Profile Modal -->
-            <div id="userProfileModal" class="user-info-modal element-hidden">
-                <button id="closeUserProfileBtn" class="close-modal-btn">
-                    <i class="close-modal-btn--icon fa-solid fa-xmark"></i>
-                </button>
-                <h2 class="user-info-modal--header">My Profile</h2>
-                <div class="user-info-modal--profile">
-                    <!-- Image Box -->
-                    <div class="profile-box profile-box--image">
-                        <div class="profile-box-header">Image</div>
-                        <div class="profile-box-inner">
-                            <div class="profile-box--image-circle">
-                                <div class="profile-box--image-circle-inner">
-                                    <i class="image-circle-inner--icon fa-solid fa-user"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <button class="btn-dark btn-tiny"><i
-                                class="btn-text-icon fa-solid fa-pen-to-square"></i>Edit</button>
-                        <button class="btn-dark btn-tiny btn-negative"><i
-                                class="btn-text-icon fa-solid fa-trash-can"></i>Delete</button>
-                    </div>
-                    <!-- Information Box -->
-                    <div class="profile-box profile-box--info">
-                        <div class="profile-box-header">Information</div>
-                    </div>
-                    <!-- Time Box -->
-                    <div class="profile-box profile-box--time">
-                        <div class="profile-box-header">Time</div>
-                        <div class="profile-box-inner">
-                            <div class="clock-face">
-                                <div class="clock-center"></div>
-                                <div id="clockFingerHours" class="clock-finger clock-finger--hours"></div>
-                                <div id="clockFingerMinutes" class="clock-finger clock-finger--minutes"></div>
-                                <div id="clockFingerSeconds" class="clock-finger clock-finger--seconds"></div>
-                            </div>
-                        </div>
-                        <div id="dateText" class="date-text">January 1 January, 2022.</div>
-                        <div id="timeText" class="time-text">00:00:00</div>
-                    </div>
-                    <!-- Weather Box -->
-                    <div class="profile-box profile-box--weather">
-                        <div class="profile-box-header">Weather</div>
-                        <div class="profile-box-inner">
-                            <div class="weather-icon-box">
-                                <i class="weather-icon-box--icon fa-solid fa-cloud"></i>
-                                <p id="weatherText" class="weather-text">Cloudy</p>
-                            </div>
-                        </div>
-                        <div class="city-text"><span id="cityText" class="text-emphasis">London</span> is currently:
-                        </div>
-                        <div id="temperatureText" class="temperature-text">14°C</div>
-                    </div>
-                </div>
-            </div>
-        </main>
-
-        <main class="main-menu element-hidden">
 
         </main>
+
 
         <!-- Footer -->
         <footer class="footer">
             <p class="footer-text">Copyright &copy; Daniel Healy, <span id="currentYear">2022</span>.</p>
         </footer>
+
     </div>
 </body>
 
