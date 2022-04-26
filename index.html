@@ -23,6 +23,14 @@
 
 <body>
     <div class="container">
+        <!-- Modals -->
+        <div id="modalBackground" class="modal-background element-hidden"></div>
+        <div id="modalContainer" class="modal-container element-hidden">
+            <button id="closeModalBtn" class="close-modal-btn">
+                <i class="close-modal-btn--icon icon-blue fa-solid fa-xmark"></i>
+            </button>
+            <div class="modal-header">My Profile</div>
+        </div>
 
         <!-- Navigation -->
         <nav class="nav">
@@ -37,36 +45,55 @@
                 <button id="openUserProfileBtn" class="btn-dark btn-round">
                     <i class="btn-icon fa-solid fa-user"></i>
                 </button>
+                <!--
+                <div id="profileNotificationBubble" class="nav-notification">
+                    <div class="nav-notification--pointer"></div>
+                    <p class="nav-notification--text">You can update and check your personal information here.</p>
+                    <button id="closeProfileNotificationBtn" class="btn-dark btn-small">Got It!</button>
+                </div>
+                -->
             </div>
         </nav>
 
 
         <!-- Main -->
         <main class="main">
-            <div class="box-container">
-                <div class="box-container--time">
+            <div id="boxContainer" class="box-container">
+                <div class="box-container--box box-container--time">
                     <button class="info-btn">
                         <i class="icon-blue fa-solid fa-circle-info"></i>
                     </button>
-                    <h2>Time</h2>
+                    <h2 class="box-container-header-small">Time</h2>
+                    <i class="box-container-icon fa-solid fa-clock"></i>
+                    <button class="btn-dark box-container-btn">Get Time</button>
                 </div>
-                <div class="box-container--weather">
+                <div class="box-container--box box-container--weather">
                     <button class="info-btn">
                         <i class="icon-blue fa-solid fa-circle-info"></i>
                     </button>
-                    <h2>Weather</h2>
+                    <h2 class="box-container-header-small">Weather</h2>
+                    <i class="box-container-icon fa-solid fa-cloud"></i>
+                    <button class="btn-dark box-container-btn">Get Weather</button>
                 </div>
-                <div class="box-container--contacts">
+                <div class="box-container--box box-container--contacts">
                     <button class="info-btn">
                         <i class="icon-blue fa-solid fa-circle-info"></i>
                     </button>
-                    <h2>Contacts</h2>
+                    <h2 class="box-container-header-large">Contacts</h2>
+                    <div class="box-container-circle">
+                        <i class="box-container-circle-icon fa-solid fa-user-plus"></i>
+                    </div>
+                    <button class="btn-dark box-container-btn">Add Contact</button>
                 </div>
-                <div class="box-container--groups">
+                <div class="box-container--box box-container--groups">
                     <button class="info-btn">
                         <i class="icon-blue fa-solid fa-circle-info"></i>
                     </button>
-                    <h2>Groups</h2>
+                    <h2 class="box-container-header-large">Groups</h2>
+                    <div class="box-container-circle">
+                        <i class="box-container-circle-icon fa-solid fa-users"></i>
+                    </div>
+                    <button class="btn-dark box-container-btn">Create Group</button>
                 </div>
             </div>
         </main>
