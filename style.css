@@ -399,12 +399,32 @@ html, body {
         grid-template-columns: repeat(11, 7rem);
         grid-template-rows: repeat(6, 7rem);
     }
+    .box-container-icon {
+        font-size: 7rem;
+    }
+    .box-container-circle {
+        width: 15rem;
+        height: 15rem;
+    }
+    .box-container-circle-icon {
+        font-size: 6rem;
+    }
+    .box-container-header-small {
+        letter-spacing: .2rem;
+        font-size: 2rem;
+    }
 }
 
 @media only screen and (max-width: 950px) {
     .box-container {
         grid-template-columns: repeat(11, 6rem);
         grid-template-rows: repeat(6, 6rem);
+    }
+    .box-container--weather, .box-container--time {
+        padding: 2rem 0 2rem 0;
+    }
+    .box-container-icon {
+        font-size: 5rem;
     }
 }
 
@@ -441,12 +461,44 @@ html, body {
         grid-row-start: 5;
         grid-row-end: 10;
     }
+
+    .box-container--weather, .box-container--time {
+        padding: 3rem 0 3rem 0;
+    }
+    .box-container-icon {
+        font-size: 9rem;
+    }
+    .box-container-circle {
+        width: 12rem;
+        height: 12rem;
+    }
+    .box-container-circle-icon {
+        font-size: 5rem;
+    }
+    .box-container-header-small {
+        letter-spacing: .2rem;
+        font-size: 2.4rem;
+    }
 }
 
 @media only screen and (max-width: 620px) {
     .box-container {
         grid-template-columns: repeat(8, 5rem);
         grid-template-rows: repeat(9, 5rem);
+    }
+    .box-container-icon {
+        font-size: 7rem;
+    }
+    .box-container-circle {
+        width: 10rem;
+        height: 10rem;
+    }
+    .box-container-circle-icon {
+        font-size: 4rem;
+    }
+    .box-container-header-small {
+        letter-spacing: .2rem;
+        font-size: 2.4rem;
     }
 }
 
@@ -536,6 +588,17 @@ html, body {
         grid-row-start: 8;
         grid-row-end: 12;
     }
+
+    .box-container-icon {
+        font-size: 5rem;
+    }
+    .box-container--box {
+        padding: 1.2rem 0;
+    }
+    .box-container-header-large, .box-container-header-small {
+        letter-spacing: .2rem;
+        font-size: 1.8rem;
+    }
   }
 
 
@@ -587,8 +650,27 @@ html, body {
   }
 
   @media only screen and (max-width: 400px) {
-      .box-container {
-          grid-template-columns: repeat(6, 4rem);
-          grid-template-rows: repeat(11, 4rem);
-      }
+    .box-container {
+        grid-template-columns: repeat(6, 4rem);
+        grid-template-rows: repeat(11, 4rem);
+    }
+    .box-container-icon {
+      font-size: 3.5rem;
+    }
+    .box-container-circle {
+        width: 7rem;
+        height: 7rem;
+    }
+    .box-container-circle-icon {
+        font-size: 3rem;
+    }
+    .box-container-header-large, .box-container-header-small {
+        font-size: 1.6rem;
+    }
+    .box-container-btn {
+        font-size: 1rem;
+        font-weight: 500;
+        letter-spacing: .1rem;
+        padding: .6rem 1.5rem;
+    }
   }
