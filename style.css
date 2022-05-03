@@ -4,6 +4,10 @@
     --color-dark: rgb(63, 119, 184);
     --color-light: rgb(98, 173, 238);
     --color-gray: rgb(242, 242, 242);
+    --color-gray-dark: rgb(62, 62, 62);
+
+    --color-warning: rgb(201, 78, 78);
+    --color-positive: rgb(111, 189, 111);
 }
 
 * {
@@ -123,6 +127,12 @@ html, body {
     color: var(--color-dark);
 }
 
+.flex {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 
 /* Modal */
 .modal-background {
@@ -138,9 +148,9 @@ html, body {
 
 .modal-container {
     background-color: white;
-    width: 90%;
-    max-width: 100rem;
-    height: 50rem;
+    /* width: 90%; */
+    /* max-width: 100rem; */
+    /* height: 50rem; */
     border-radius: .5rem;
     position: absolute;
     top: 50%;
@@ -159,6 +169,246 @@ html, body {
     text-align: center;
     margin: 3rem 6rem;
 }
+
+.modal-body {
+    width: 100%;
+    padding: 1rem 3rem 5rem 3rem;
+    font-size: 2rem;
+}
+
+.modal-box {
+    background-color: var(--color-gray);
+    border-radius: .5rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-box-header {
+    font-size: 2rem;
+    text-transform: uppercase;
+    text-align: center;
+    padding-top: 2rem;
+    color: var(--color-dark);
+}
+
+.modal-box-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+}
+
+.modal-box-content--top {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 20rem;
+}
+
+.modal-box-content--bottom {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+    flex: 1;
+}
+
+.user-modal-inner {
+    display: grid;
+    grid-template-columns: repeat(4, 22rem);
+    grid-template-rows: repeat(1, auto);
+    grid-gap: 1rem;
+}
+
+.btn-container {
+    justify-content: flex-end;
+    height: 6rem;
+}
+
+
+/* 🖼 Image 🖼 */
+.profile-box--image-circle {
+    background-color: white;
+    width: 12rem;
+    height: 12rem;
+    margin: 2rem;
+    border-radius: 50%;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.profile-box--image-circle-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.image-circle-inner--icon {
+    color: rgb(145, 145, 145);
+    font-size: 9rem;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+
+/* 💬 Information 💬 */
+.modal-box-content--option {
+    margin: .5rem 0;
+    width: 90%;
+}
+
+.option-title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--color-dark);
+    width: 50%;
+}
+
+.option-input {
+    background-color: transparent;
+    border: none;
+    border-bottom: .1rem solid var(--color-dark);
+    font-size: 1.6rem;
+    padding: .5rem .2rem;
+    color: var(--color-gray-dark);
+    font-family: var(--font-primary);
+    width: 85%;
+}
+
+.option-icon-box {
+    display: inline;
+    width: 20%;
+}
+
+.option-icon {
+    font-size: 1.6rem;
+}
+
+.option-icon-positive {
+    color: var(--color-positive);
+}
+
+.option-icon-negative {
+    color: var(--color-warning);
+}
+
+.modal-box-content--option:last-child {
+    margin-top: 2rem;
+}
+
+.modal-inner-btn {
+    font-size: 1.2rem;
+    font-weight: 500;
+    letter-spacing: .1rem;
+    padding: 1rem 2rem;
+}
+
+/* ⏰ Clock ⏰ */
+.clock-face {
+    background-color: white;
+    width: 12rem;
+    height: 12rem;
+    margin: 2rem;
+    border-radius: 50%;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    position: relative;
+}
+
+.clock-finger {
+    background-color: black;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: .2rem;
+    height: 6rem;
+    transform-origin: bottom;
+}
+
+.clock-finger--hours {
+    background-color: black;
+    top: 3rem;
+    height: 3rem;
+    transform: translateX(-50%) rotate(0deg);
+}
+
+.clock-finger--minutes {
+    top: .5rem;
+    height: 5.5rem;
+    transform: translateX(-50%) rotate(0deg);
+}
+
+.clock-finger--seconds {
+    background-color: red;
+    top: .5rem;
+    width: .1rem;
+    height: 5.5rem;
+    transform: translateX(-50%) rotate(0deg);
+}
+
+.clock-center {
+    background-color: black;
+    width: .5rem;
+    height: .5rem;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    z-index: 150;
+}
+
+.date-text, .city-text {
+    color: var(--color-dark);
+    font-size: 1.5rem;
+    font-weight: 300;
+    margin: .5rem 0;
+    text-align: center;
+    line-height: 1.5;
+}
+
+.time-text, .temperature-text {
+    color: var(--color-dark);
+    font-size: 3rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* 🌤 Weather 🌤 */
+.weather-icon-box {
+    width: 12rem;
+    height: 12rem;
+    margin: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.weather-icon-box--icon {
+    background: linear-gradient(to right, rgb(63, 119, 184), rgb(98, 173, 238));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 9rem;
+    margin-bottom: 1rem;
+}
+
+.weather-text {
+    color: var(--color-dark);
+    font-size: 1.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-top: .5rem;
+}
+
 
 /* Navigation */
 .nav {
@@ -351,13 +601,6 @@ html, body {
     letter-spacing: .2rem;
     font-size: 2.4rem;
 }
-
-/* .box-container-header-large {
-}
-
-.box-container-header-small {
-    font-size: 1.8rem;
-} */
 
 .box-container-btn {
     font-size: 1.2rem;
@@ -604,10 +847,15 @@ html, body {
 
   @media only screen and (max-width: 500px) {
     /* Modal */
+    .modal-background {
+        display: none;
+    }
+
     .modal-container {
         background-color: white;
         width: 100%;
         height: 100%;
+        /* min-height: 100vh; */
         margin: 0 0;
         border-radius: 0;
         position: absolute;
@@ -615,6 +863,13 @@ html, body {
         left: 50%;
         transform: translateX(-50%) translateY(-50%);
         z-index: 150;
+    }
+    
+    .user-modal-inner {
+        display: grid;
+        grid-template-columns: repeat(2, 22rem);
+        grid-template-rows: repeat(2, auto);
+        grid-gap: 1rem;
     }
 
     /* Universal */
