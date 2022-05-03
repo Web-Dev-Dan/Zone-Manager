@@ -30,6 +30,115 @@
                 <i class="close-modal-btn--icon icon-blue fa-solid fa-xmark"></i>
             </button>
             <div id="modalHeader" class="modal-header">My Profile</div>
+
+            <!-- User Modal -->
+            <div id="userModal" class="modal-body element-hidden">
+                <div class="user-modal-inner">
+                    <div class="modal-box">
+                        <h3 class="modal-box-header">Image</h3>
+                        <div class="modal-box-content">
+                            <div class="modal-box-content--top">
+                                <div class="profile-box--image-circle">
+                                    <div class="profile-box--image-circle-inner">
+                                        <i class="image-circle-inner--icon fa-solid fa-user"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-box-content--bottom btn-container">
+                                <button id="changeImageBtn" class="btn-dark modal-inner-btn">Update</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-box">
+                        <h3 class="modal-box-header">Information</h3>
+                        <div class="modal-box-content">
+                            <div class="modal-box-content--option">
+                                <p class="option-title">Name:</p>
+                                <input id="nameInput" class="option-input" type="text" placeholder="e.g. Jane Smith"
+                                    autocomplete="off">
+                                <div class="option-icon-box">
+                                    <i id="nameIcon"
+                                        class="option-icon option-icon-negative fa-solid fa-triangle-exclamation"></i>
+                                </div>
+                            </div>
+                            <div class="modal-box-content--option">
+                                <p class="option-title">City:</p>
+                                <input id="cityInput" class="option-input" type="text" placeholder="e.g. London"
+                                    autocomplete="off">
+                                <div class="option-icon-box">
+                                    <i id="cityIcon"
+                                        class="option-icon option-icon-negative fa-solid fa-triangle-exclamation"></i>
+                                </div>
+                            </div>
+                            <div class="modal-box-content--option">
+                                <p class="option-title">Country:</p>
+                                <input id="countryInput" class="option-input" type="text" placeholder="e.g. UK"
+                                    autocomplete="off">
+                                <div class="option-icon-box">
+                                    <i id="countryIcon"
+                                        class="option-icon option-icon-negative fa-solid fa-triangle-exclamation"></i>
+                                </div>
+                            </div>
+
+
+                            <div class="modal-box-content--option flex btn-container">
+                                <button id="submitInfoBtn" class="btn-dark modal-inner-btn">Update</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-box">
+                        <h3 class="modal-box-header">Time</h3>
+                        <div class="modal-box-content">
+                            <div class="modal-box-content--top">
+                                <div class="clock-face">
+                                    <div class="clock-center"></div>
+                                    <div id="clockFingerHours" class="clock-finger clock-finger--hours"></div>
+                                    <div id="clockFingerMinutes" class="clock-finger clock-finger--minutes"></div>
+                                    <div id="clockFingerSeconds" class="clock-finger clock-finger--seconds"></div>
+                                </div>
+                            </div>
+                            <div class="modal-box-content--bottom">
+                                <p id="dateText" class="date-text">Wednesday 30 September, 2022.</p>
+                                <p id="timeText" class="time-text">00:00:00</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-box">
+                        <h3 class="modal-box-header">Weather</h3>
+                        <div class="modal-box-content">
+                            <div class="modal-box-content--top">
+                                <div class="weather-icon-box">
+                                    <i id="weatherIcon" class="weather-icon-box--icon fa-solid fa-cloud"></i>
+                                    <p id="weatherText" class="weather-text">Clouds</p>
+                                </div>
+                            </div>
+                            <div class="modal-box-content--bottom">
+                                <div class="city-text"><span id="cityText" class="text-emphasis">London</span> is
+                                    currently:
+                                </div>
+                                <div id="temperatureText" class="temperature-text">14°C</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Time Modal -->
+            <div id="timeModal" class="modal-body element-hidden">
+                TIME MODAL
+            </div>
+            <!-- Weather Modal -->
+            <div id="weatherModal" class="modal-body element-hidden">
+                WEATHER MODAL
+            </div>
+            <!-- Contact Modal -->
+            <div id="contactModal" class="modal-body element-hidden">
+                CONTACT MODAL
+            </div>
+            <!-- Group Modal -->
+            <div id="groupModal" class="modal-body element-hidden">
+                GROUP MODAL
+            </div>
         </div>
 
         <!-- Navigation -->
@@ -83,7 +192,7 @@
                     <div class="box-container-circle">
                         <i class="box-container-circle-icon fa-solid fa-user-plus"></i>
                     </div>
-                    <button id="addContactBtn" class="btn-dark box-container-btn">Add Contact</button>
+                    <button id="addContactBtn" class="btn-dark box-container-btn">View Contacts</button>
                 </div>
                 <div class="box-container--box box-container--groups">
                     <!-- <button class="info-btn">
@@ -93,7 +202,7 @@
                     <div class="box-container-circle">
                         <i class="box-container-circle-icon fa-solid fa-users"></i>
                     </div>
-                    <button id="createGroupBtn" class="btn-dark box-container-btn">Create Group</button>
+                    <button id="createGroupBtn" class="btn-dark box-container-btn">View Groups</button>
                 </div>
             </div>
         </main>
