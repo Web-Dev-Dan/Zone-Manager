@@ -136,6 +136,10 @@ html, body {
     align-items: center;
 }
 
+.bold {
+    font-weight: 600;
+}
+
 /* Modal */
 .modal-background {
     background-color: black;
@@ -230,6 +234,144 @@ html, body {
 .btn-container {
     justify-content: flex-end;
     height: 6rem;
+}
+
+
+/* Weather Modal */
+.weather-modal {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    grid-template-rows: repeat(1, auto);
+    grid-gap: 1rem;
+    border-radius: .5rem;
+}
+
+.modal-description {
+    color: var(--color-dark);
+    text-align: center;
+    font-size: 1.6rem;
+    line-height: 1.5;
+    font-weight: 300;
+    margin-bottom: 3rem;
+}
+
+.weather-modal--input {
+    /* background-color: red; */
+    color: var(--color-gray-dark);
+    width: 100%;
+    margin-bottom: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-search-text {
+    color: var(--color-dark);
+    font-weight: 600;
+    font-size: 1.8rem;
+    margin-right: 2rem;
+    text-align: center;
+}
+
+.modal-search-input {
+    font-family: var(--font-primary);
+    font-size: 2rem;
+    margin-right: 2rem;
+    padding: .5rem;
+    border: none;
+    background-color: transparent;
+    border-bottom: .1rem solid var(--color-dark);
+}
+
+.weather-modal--box {
+    background-color: var(--color-gray);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.weather-modal--title {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--color-dark);
+    text-transform: uppercase;
+    text-align: center;
+    padding-bottom: .5rem;
+    border-bottom: .1rem solid var(--color-dark);
+    display: inline-block;
+}
+
+.weather-modal--subtitle {
+    font-size: 1.4rem;
+    font-weight: 400;
+    max-width: 80%;
+    line-height: 1.5;
+    color: var(--color-dark);
+    text-transform: uppercase;
+    text-align: center;
+    padding-top: .5rem;
+}
+
+.weather-modal--results {
+    /* background-color: rgb(230, 230, 230); */
+    display: grid;
+    grid-template-columns: repeat(2, 14rem);
+    grid-template-rows: repeat(2, 12rem);
+}
+
+.weather-modal--results-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.weather-modal--icon {
+    font-size: 4rem;
+    color: var(--color-dark);
+    /* font-weight: 600;
+    background: linear-gradient(to right, rgb(63, 119, 184), rgb(98, 173, 238));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; */
+}
+
+.weather-modal--text-large {
+    font-size: 3rem;
+    color: var(--color-dark);
+    font-weight: 600;
+}
+
+.weather-modal--text {
+    font-size: 1.8rem;
+    color: var(--color-dark);
+    margin-top: 1rem;
+    font-weight: 600;
+}
+
+.search-weather-placeholder {
+    width: 100%;
+    min-width: 20rem;
+    height: 100%;
+    min-height: 20rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.placeholder-icon {
+    color: var(--color-gray-dark);
+    font-size: 5rem;
+    margin-bottom: 1rem;
+}
+
+.placeholder-text {
+    color: var(--color-gray-dark);
+    font-size: 1.6rem;
+    margin-top: 2rem;
+    line-height: 1.5;
 }
 
 
@@ -749,6 +891,43 @@ html, body {
     }
 }
 
+@media only screen and (max-width: 650px) {
+    /* Modal */
+    .modal-background {
+        display: none;
+    }
+
+    .modal-container {
+        background-color: white;
+        width: 100%;
+        min-height: 100vh;
+        /* height: 100%; */
+        /* min-height: 100vh; */
+        margin: 0 0;
+        border-radius: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translateX(0) translateY(0);
+        z-index: 150;
+    }
+    
+    .user-modal-inner {
+        display: grid;
+        grid-template-columns: repeat(2, 21rem);
+        grid-template-rows: repeat(2, auto);
+        grid-gap: 1rem;
+    }
+    /* Weather Modal */
+    .weather-modal {
+        display: grid;
+        grid-template-columns: repeat(1, auto);
+        grid-template-rows: repeat(2, auto);
+        grid-gap: 1rem;
+        border-radius: .5rem;
+    }
+}
+
 @media only screen and (max-width: 620px) {
     .box-container {
         grid-template-columns: repeat(8, 5rem);
@@ -824,6 +1003,24 @@ html, body {
   }
 
   @media only screen and (max-width: 550px) {
+    /* Weather Modal */
+    .weather-modal--input {
+        flex-direction: column;
+        margin-bottom: 3rem;
+    }
+    
+    .modal-search-text {
+        margin-right: 0;
+        margin-bottom: 1rem;
+        text-align: center;
+    }
+    
+    .modal-search-input {
+        margin-right: 0;
+        margin-bottom: 1rem;
+    }
+
+
     .box-container {
         grid-template-columns: repeat(6, 5rem);
         grid-template-rows: repeat(11, 5rem);
@@ -871,32 +1068,8 @@ html, body {
 
 
   @media only screen and (max-width: 500px) {
-    /* Modal */
-    .modal-background {
-        display: none;
-    }
-
-    .modal-container {
-        background-color: white;
-        width: 100%;
-        min-height: 100vh;
-        /* height: 100%; */
-        /* min-height: 100vh; */
-        margin: 0 0;
-        border-radius: 0;
-        position: absolute;
-        top: 0;
-        left: 0;
-        transform: translateX(0) translateY(0);
-        z-index: 150;
-    }
     
-    .user-modal-inner {
-        display: grid;
-        grid-template-columns: repeat(2, 21rem);
-        grid-template-rows: repeat(2, auto);
-        grid-gap: 1rem;
-    }
+
 
     /* Universal */
     .btn-round {
@@ -937,6 +1110,7 @@ html, body {
         padding: 1rem 3rem 5rem 3rem;
         font-size: 2rem;
         display: flex;
+        flex-direction: column;
         justify-content: center;
     }
     .user-modal-inner {
