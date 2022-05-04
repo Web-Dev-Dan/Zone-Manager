@@ -133,11 +133,73 @@
             <!-- Time Modal -->
             <div id="timeModal" class="modal-body element-hidden">
                 TIME MODAL
-                <button id="countryBtn">GO GO</button>
             </div>
             <!-- Weather Modal -->
             <div id="weatherModal" class="modal-body element-hidden">
-                WEATHER MODAL
+                <p class="modal-description">Search for weather reports from around the world.</p>
+                <div class="weather-modal--input">
+                    <p class="modal-search-text">Search City:</p>
+                    <input id="getWeatherInput" class="modal-search-input" type="text" placeholder="e.g. London"
+                        autocomplete="no">
+                    <button id="getWeatherBtn" class="btn-dark modal-inner-btn">Search</button>
+                </div>
+                <div class="weather-modal">
+                    <!-- Empty Box: -->
+                    <div id="weatherSearchPlaceholderBox" class="weather-modal--box">
+                        <div class="search-weather-placeholder">
+                            <i class="placeholder-icon fa-solid fa-magnifying-glass"></i>
+                            <p class="placeholder-text">Nothing to report...</p>
+                            <p class="placeholder-text">Try searching for a city...</p>
+                        </div>
+                    </div>
+
+                    <!-- User Search Box: -->
+                    <div id="userWeatherSearchBox" class="weather-modal--box element-hidden">
+                        <h3 id="getWeatherCity" class="weather-modal--title">Tokyo</h3>
+                        <h4 id="getWeatherCountry" class="weather-modal--subtitle">Japan</h4>
+                        <div class="weather-modal--results">
+                            <div class="weather-modal--results-box">
+                                <i id="getWeatherIcon" class="weather-modal--icon fa-solid fa-cloud"></i>
+                                <p id="getWeatherWeather" class="weather-modal--text">Clear</p>
+                            </div>
+                            <div class="weather-modal--results-box">
+                                <p id="getWeatherTemperature" class="weather-modal--text-large">28°C</p>
+                            </div>
+                            <div class="weather-modal--results-box">
+                                <i class="weather-modal--icon fa-solid fa-wind"></i>
+                                <p id="getWeatherWindSpeed" class="weather-modal--text">10km/h</p>
+                            </div>
+                            <div class="weather-modal--results-box">
+                                <p id="getWeatherHumidity" class="weather-modal--text-large">49%</p>
+                                <p class="weather-modal--text">Humidity</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- User Location Box: -->
+                    <div class="weather-modal--box">
+                        <h3 id="currentLocationCity" class="weather-modal--title">London</h3>
+                        <h4 id="currentLocationCountry" class="weather-modal--subtitle">UK</h4>
+                        <div class="weather-modal--results">
+                            <div class="weather-modal--results-box">
+                                <i id="currentLocationWeatherIcon" class="weather-modal--icon fa-solid fa-cloud"></i>
+                                <p id="currentLocationWeather" class="weather-modal--text">Cloudy</p>
+                            </div>
+                            <div class="weather-modal--results-box">
+                                <p id="currentLocationTemperature" class="weather-modal--text-large">15°C</p>
+                            </div>
+                            <div class="weather-modal--results-box">
+                                <i class="weather-modal--icon fa-solid fa-wind"></i>
+                                <p id="currentLocationWindSpeed" class="weather-modal--text">12km/h</p>
+                            </div>
+                            <div class="weather-modal--results-box">
+                                <p id="currentLocationHumidity" class="weather-modal--text-large">28%</p>
+                                <p class="weather-modal--text">Humidity</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
             </div>
             <!-- Contact Modal -->
             <div id="contactModal" class="modal-body element-hidden">
