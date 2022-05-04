@@ -63,6 +63,8 @@ function mainBtnPressed(e) {
         modalHeader.textContent = 'Get Weather';
         checkModal('Weather');
         showModal(weatherModal);
+        weatherSearchPlaceholderBox.classList.remove('element-hidden');
+        userWeatherSearchBox.classList.add('element-hidden');
     } else if (clicked.id === 'addContactBtn') {
         // 🙍‍♂️ Contacts:
         modalHeader.textContent = 'Add Contact';
@@ -102,6 +104,7 @@ function checkModal(modal) {
     }
     if (modal === 'Weather') {
         weatherModal.classList.remove('element-hidden');
+        updateWeatherModal();
     } else {
         weatherModal.classList.add('element-hidden');
     }
@@ -348,3 +351,152 @@ deleteImageBtn.addEventListener('click', function () {
     changeImageInput.value = '';
     uploadedImage = '';
 });
+
+
+
+
+// ----- 🌤 WEATHER MODAL 🌤 -----
+const currentLocationCity = document.getElementById('currentLocationCity');
+const currentLocationCountry = document.getElementById('currentLocationCountry');
+const currentLocationWeatherIcon = document.getElementById('currentLocationWeatherIcon');
+const currentLocationWeather = document.getElementById('currentLocationWeather');
+const currentLocationTemperature = document.getElementById('currentLocationTemperature');
+const currentLocationWindSpeed = document.getElementById('currentLocationWindSpeed');
+const currentLocationHumidity = document.getElementById('currentLocationHumidity');
+
+function updateWeatherModal() {
+    console.log('Updating Weather Modal!');
+    currentLocationCity.textContent = cityName;
+    let country;
+
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=metric`)
+        .then(response => {
+            return response.json();
+        })
+        .then(data => {
+            currentLocationWeather.textContent = data.weather[0].main;
+            currentLocationTemperature.textContent = `${Math.round(data.main.temp)}°C`;
+            currentLocationWindSpeed.textContent = `${data.wind.speed}km/h`;
+            currentLocationHumidity.textContent = `${data.main.humidity}%`;
+
+            currentLocationWeatherIcon.removeAttribute('class');
+            currentLocationWeatherIcon.classList.add('weather-modal--icon', 'fa-solid');
+
+            if (data.weather[0].main === 'Clear') {
+                currentLocationWeatherIcon.classList.add('fa-sun');
+            } else if (data.weather[0].main === 'Clouds') {
+                currentLocationWeatherIcon.classList.add('fa-cloud');
+            } else if (data.weather[0].main === 'Snow') {
+                currentLocationWeatherIcon.classList.add('fa-snowflake');
+            } else if (data.weather[0].main === 'Rain' || data.weather[0].main === 'Drizzle') {
+                currentLocationWeatherIcon.classList.add('fa-cloud-showers-heavy');
+            } else if (data.weather[0].main === 'Thunderstorm') {
+                currentLocationWeatherIcon.classList.add('fa-cloud-bolt');
+            } else if (data.weather[0].main === 'Tornado') {
+                currentLocationWeatherIcon.classList.add('fa-tornado');
+            } else if (data.weather[0].main === 'Squall') {
+                currentLocationWeatherIcon.classList.add('fa-wind');
+            } else {
+                currentLocationWeatherIcon.classList.add('fa-cloud');
+            }
+
+            country = data.sys.country;
+
+            fetch(`https://restcountries.com/v2/alpha/${country}`)
+                .then(response => {
+                    return response.json();
+                })
+                .then(data => {
+                    currentLocationCountry.textContent = data.name;
+                })
+                .catch(error => {
+                    console.error(error);
+                })
+        })
+        .catch(error => {
+            console.error(error);
+        });
+}
+
+
+// Get Weather: Use Search
+const getWeatherInput = document.getElementById('getWeatherInput');
+const getWeatherBtn = document.getElementById('getWeatherBtn');
+
+const weatherSearchPlaceholderBox = document.getElementById('weatherSearchPlaceholderBox');
+const userWeatherSearchBox = document.getElementById('userWeatherSearchBox');
+
+const getWeatherCity = document.getElementById('getWeatherCity');
+const getWeatherCountry = document.getElementById('getWeatherCountry');
+const getWeatherIcon = document.getElementById('getWeatherIcon');
+const getWeatherWeather = document.getElementById('getWeatherWeather');
+const getWeatherTemperature = document.getElementById('getWeatherTemperature');
+const getWeatherWindSpeed = document.getElementById('getWeatherWindSpeed');
+const getWeatherHumidity = document.getElementById('getWeatherHumidity');
+
+getWeatherBtn.addEventListener('click', function () {
+    if (getWeatherInput.value) {
+
+        fetch(`https://api.openweathermap.org/data/2.5/weather?q=${getWeatherInput.value}&appid=${apiKey}&units=metric`)
+            .then(response => {
+                return response.json();
+            })
+            .then(data => {
+                if (data.message === 'city not found') {
+                    return;
+                } else {
+                    console.log(data);
+                    weatherSearchPlaceholderBox.classList.add('element-hidden');
+                    userWeatherSearchBox.classList.remove('element-hidden');
+
+                    getWeatherCity.textContent = data.name;
+                    getWeatherWeather.textContent = data.weather[0].main;
+                    getWeatherTemperature.textContent = `${Math.round(data.main.temp)}°C`;
+                    getWeatherWindSpeed.textContent = `${data.wind.speed}km/h`;
+                    getWeatherHumidity.textContent = `${data.main.humidity}%`;
+
+                    getWeatherIcon.removeAttribute('class');
+                    getWeatherIcon.classList.add('weather-modal--icon', 'fa-solid');
+
+                    if (data.weather[0].main === 'Clear') {
+                        getWeatherIcon.classList.add('fa-sun');
+                    } else if (data.weather[0].main === 'Clouds') {
+                        getWeatherIcon.classList.add('fa-cloud');
+                    } else if (data.weather[0].main === 'Snow') {
+                        getWeatherIcon.classList.add('fa-snowflake');
+                    } else if (data.weather[0].main === 'Rain' || data.weather[0].main === 'Drizzle') {
+                        getWeatherIcon.classList.add('fa-cloud-showers-heavy');
+                    } else if (data.weather[0].main === 'Thunderstorm') {
+                        getWeatherIcon.classList.add('fa-cloud-bolt');
+                    } else if (data.weather[0].main === 'Tornado') {
+                        getWeatherIcon.classList.add('fa-tornado');
+                    } else if (data.weather[0].main === 'Squall') {
+                        getWeatherIcon.classList.add('fa-wind');
+                    } else {
+                        getWeatherIcon.classList.add('fa-cloud');
+                    }
+
+                    country = data.sys.country;
+
+                    fetch(`https://restcountries.com/v2/alpha/${country}`)
+                        .then(response => {
+                            return response.json();
+                        })
+                        .then(data => {
+                            getWeatherCountry.textContent = data.name;
+                        })
+                        .catch(error => {
+                            console.error(error);
+                        })
+                }
+            })
+            .catch(error => {
+                console.error(error);
+            })
+    } else {
+        return;
+    }
+    getWeatherInput.value = '';
+});
+
+
