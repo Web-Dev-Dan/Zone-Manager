@@ -38,6 +38,7 @@ function toggleUserModal() {
     checkModal('User');
     showModal(userModal);
     getWeather();
+    closeNotificationBubble();
 }
 
 
@@ -500,3 +501,12 @@ getWeatherBtn.addEventListener('click', function () {
 });
 
 
+// Notication Bubble
+const notificationBubble = document.getElementById('profileNotificationBubble');
+const closeNotificationBubbleBtn = document.getElementById('closeProfileNotificationBtn');
+
+closeNotificationBubbleBtn.addEventListener('click', closeNotificationBubble);
+
+function closeNotificationBubble() {
+    notificationBubble.classList.add('element-hidden');
+}
