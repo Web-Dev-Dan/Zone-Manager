@@ -37,15 +37,22 @@
                     <div class="modal-box">
                         <h3 class="modal-box-header">Image</h3>
                         <div class="modal-box-content">
-                            <div class="modal-box-content--top">
+                            <div id="modalImageContainer" class="modal-box-content--top">
                                 <div class="profile-box--image-circle">
                                     <div class="profile-box--image-circle-inner">
                                         <i class="image-circle-inner--icon fa-solid fa-user"></i>
                                     </div>
                                 </div>
                             </div>
-                            <div class="modal-box-content--bottom btn-container">
-                                <button id="changeImageBtn" class="btn-dark modal-inner-btn">Update</button>
+                            <div class="modal-box-content--bottom btn-container profile-img-btn-container">
+                                <input class="choose-profile-img-btn" id="file" type="file" name="uploadImage"
+                                    accept="image/*">
+                                <!-- <button id="changeImageBtn" class="btn-dark modal-inner-btn">Update</button> -->
+                                <button id="changeImageBtn" class="background-btn modal-inner-btn">
+                                    <label class="modal-btn-label btn-dark" for="file">Update</label>
+                                </button>
+                                <button id="deleteImageBtn"
+                                    class="btn-dark modal-inner-btn btn-negative element-hidden">Delete</button>
                             </div>
                         </div>
                     </div>
@@ -55,7 +62,7 @@
                             <div class="modal-box-content--option">
                                 <p class="option-title">Name:</p>
                                 <input id="nameInput" class="option-input" type="text" placeholder="e.g. Jane Smith"
-                                    autocomplete="off">
+                                    autocomplete="no">
                                 <div class="option-icon-box">
                                     <i id="nameIcon"
                                         class="option-icon option-icon-negative fa-solid fa-triangle-exclamation"></i>
@@ -64,7 +71,7 @@
                             <div class="modal-box-content--option">
                                 <p class="option-title">City:</p>
                                 <input id="cityInput" class="option-input" type="text" placeholder="e.g. London"
-                                    autocomplete="off">
+                                    autocomplete="no">
                                 <div class="option-icon-box">
                                     <i id="cityIcon"
                                         class="option-icon option-icon-negative fa-solid fa-triangle-exclamation"></i>
@@ -73,7 +80,7 @@
                             <div class="modal-box-content--option">
                                 <p class="option-title">Country:</p>
                                 <input id="countryInput" class="option-input" type="text" placeholder="e.g. UK"
-                                    autocomplete="off">
+                                    autocomplete="no">
                                 <div class="option-icon-box">
                                     <i id="countryIcon"
                                         class="option-icon option-icon-negative fa-solid fa-triangle-exclamation"></i>
@@ -81,7 +88,7 @@
                             </div>
 
 
-                            <div class="modal-box-content--option flex btn-container">
+                            <div class="modal-box-content--option flex">
                                 <button id="submitInfoBtn" class="btn-dark modal-inner-btn">Update</button>
                             </div>
                         </div>
@@ -126,6 +133,7 @@
             <!-- Time Modal -->
             <div id="timeModal" class="modal-body element-hidden">
                 TIME MODAL
+                <button id="countryBtn">GO GO</button>
             </div>
             <!-- Weather Modal -->
             <div id="weatherModal" class="modal-body element-hidden">
@@ -152,7 +160,7 @@
             </div>
             <div class="nav-user">
                 <button id="openUserProfileBtn" class="btn-dark btn-round">
-                    <i class="btn-icon fa-solid fa-user"></i>
+                    <i id="openUserProfileIcon" class="btn-icon fa-solid fa-user"></i>
                 </button>
                 <!--
                 <div id="profileNotificationBubble" class="nav-notification">
