@@ -1004,6 +1004,13 @@ html, body {
         right: .5rem;
     }
 
+    .notification-indicator {
+        width: 1.5rem;
+        height: 1.5rem;
+        top: -.3rem;
+        right: -.3rem;
+    }
+
     /* Main */
     .main {
         min-height: calc(100vh - 15rem);
