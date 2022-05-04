@@ -8,6 +8,7 @@
 
     --color-warning: rgb(201, 78, 78);
     --color-positive: rgb(111, 189, 111);
+    --color-orange: rgb(255, 166, 0);
 }
 
 * {
@@ -140,6 +141,10 @@ html, body {
     font-weight: 600;
 }
 
+.btn-black {
+    background-color: var(--color-gray-dark);
+}
+
 /* Modal */
 .modal-background {
     background-color: black;
@@ -255,7 +260,7 @@ html, body {
     margin-bottom: 3rem;
 }
 
-.weather-modal--input {
+.weather-modal--input, .time-modal--input {
     /* background-color: red; */
     color: var(--color-gray-dark);
     width: 100%;
@@ -627,7 +632,8 @@ html, body {
 }
 
 .nav-notification {
-    background-color: white;
+    /* background-color: white; */
+    background-color: var(--color-orange);
     width: 30rem;
     padding: 2rem;
     position: absolute;
@@ -638,6 +644,7 @@ html, body {
     justify-content: center;
     align-items: center;
     border-radius: 1rem;
+    z-index: 50;
 }
 
 .nav-notification--pointer {
@@ -645,7 +652,7 @@ html, body {
     top: -3.5rem;
     right: 1rem;
     border: 1.5rem solid transparent;
-    border-bottom: 2rem solid white;
+    border-bottom: 2rem solid var(--color-orange);
 }
 
 .nav-notification--text {
