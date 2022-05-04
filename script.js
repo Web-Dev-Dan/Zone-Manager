@@ -136,6 +136,8 @@ function calculateDate() {
     dateText.textContent = `${currentDay} ${currentDate} ${currentMonth}, ${currentYear}.`;
 }
 
+
+
 // ⏰ Clock
 const clockFingerHours = document.getElementById('clockFingerHours');
 const clockFingerMinutes = document.getElementById('clockFingerMinutes');
@@ -187,6 +189,7 @@ setInterval(() => {
 }, 1000);
 
 
+
 // ----- 🌤 Weather API 🌤 -----
 const weatherText = document.getElementById('weatherText');
 // const weatherIcon; 
@@ -206,6 +209,10 @@ function getWeather() {
             cityText.textContent = data.name;
             temperatureText.textContent = `${Math.round(data.main.temp)}°C`;
             checkWeatherIcon(data.weather[0].main);
+
+            console.log(data);
+            console.log(data.sys.country);
+            getCountry(data.sys.country);
         })
         .catch(error => {
             console.error(error);
@@ -237,6 +244,33 @@ function checkWeatherIcon(weather) {
 }
 
 
+
+// ----- 🌍 Get Country (By 2-Letter Code) 🌍 -----
+let currentCountryCode = 'gb';
+let currentCountry;
+
+function getCountry(country) {
+    fetch(`https://restcountries.com/v2/alpha/${country}`)
+        .then(response => {
+            return response.json();
+        })
+        .then(data => {
+            console.log(data);
+            currentCountry = data.name;
+            if (cityInput.value) {
+                countryInput.value = currentCountry;
+            } else {
+                countryInput.value = '';
+            }
+            console.log(currentCountry);
+        })
+        .catch(error => {
+            console.error(error);
+        })
+}
+
+
+
 // ----- 💬 Update Information 💬 -----
 const nameInput = document.getElementById('nameInput');
 const cityInput = document.getElementById('cityInput');
@@ -250,7 +284,6 @@ function updateInfo() {
     const cityIcon = document.getElementById('cityIcon');
     const countryIcon = document.getElementById('countryIcon');
 
-    // fa-square-check
     nameIcon.removeAttribute('class');
     cityIcon.removeAttribute('class');
     countryIcon.removeAttribute('class');
@@ -273,3 +306,45 @@ function updateInfo() {
         countryIcon.classList.add('option-icon', 'option-icon-negative', 'fa-solid', 'fa-triangle-exclamation');
     }
 }
+
+
+
+// ----- 🖼 Update Profile Image 🖼 -----
+const changeImageInput = document.querySelector('.choose-profile-img-btn');
+const changeImageBtn = document.getElementById('changeImageBtn');
+const deleteImageBtn = document.getElementById('deleteImageBtn');
+
+const modalImageBox = document.querySelector('.profile-box--image-circle');
+const modalImageBoxIcon = document.querySelector('.profile-box--image-circle-inner');
+
+let profileImageBox = document.getElementById('openUserProfileBtn');
+const profileImageBoxInner = document.getElementById('openUserProfileIcon');
+
+let uploadedImage = '';
+
+changeImageInput.addEventListener('change', function () {
+    const reader = new FileReader();
+    reader.addEventListener('load', () => {
+        uploadedImage = reader.result;
+        modalImageBoxIcon.classList.add('element-hidden');
+        modalImageBox.style.backgroundImage = `url(${uploadedImage})`;
+        changeImageBtn.classList.add('element-hidden');
+        deleteImageBtn.classList.remove('element-hidden');
+        profileImageBoxInner.classList.add('element-hidden');
+        profileImageBox.style.backgroundImage = `url(${uploadedImage})`;
+    });
+    reader.readAsDataURL(this.files[0]);
+});
+
+deleteImageBtn.addEventListener('click', function () {
+    uploadedImage = '';
+    deleteImageBtn.classList.add('element-hidden');
+    changeImageBtn.classList.remove('element-hidden');
+    modalImageBoxIcon.classList.remove('element-hidden');
+    profileImageBoxInner.classList.remove('element-hidden');
+
+    modalImageBox.style.backgroundImage = 'none';
+    profileImageBox.style.backgroundImage = 'none';
+    changeImageInput.value = '';
+    uploadedImage = '';
+});
