@@ -65,6 +65,8 @@ html, body {
 }
 
 .btn-round {
+    background-position: center;
+    background-size: cover;
     width: 5rem;
     height: 5rem;
     padding: 0;
@@ -190,6 +192,7 @@ html, body {
     text-align: center;
     padding-top: 2rem;
     color: var(--color-dark);
+    margin-bottom: 2rem;
 }
 
 .modal-box-content {
@@ -233,6 +236,8 @@ html, body {
 /* 🖼 Image 🖼 */
 .profile-box--image-circle {
     background-color: white;
+    background-position: center;
+    background-size: cover;
     width: 12rem;
     height: 12rem;
     margin: 2rem;
@@ -259,10 +264,32 @@ html, body {
     transform: translateX(-50%);
 }
 
+.choose-profile-img-btn {
+    display: none;
+}
+
+.background-btn {
+    border: none;
+    background-color: transparent;
+}
+
+.modal-btn-label {
+    font-size: 1.2rem;
+    font-weight: 500;
+    letter-spacing: .1rem;
+    padding: 1rem 2rem;
+}
+
+.modal-btn-label:hover {
+    cursor: pointer;
+    filter: brightness(90%);
+}
+
+
 
 /* 💬 Information 💬 */
 .modal-box-content--option {
-    margin: .5rem 0;
+    margin: 1rem 0;
     width: 90%;
 }
 
