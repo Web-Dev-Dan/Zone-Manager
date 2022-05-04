@@ -309,6 +309,13 @@ function updateInfo() {
     } else {
         countryIcon.classList.add('option-icon', 'option-icon-negative', 'fa-solid', 'fa-triangle-exclamation');
     }
+
+    const notificationIndicator = document.getElementById('notificationIndicator');
+    if (nameInput.value && cityInput.value) {
+        notificationIndicator.classList.add('element-hidden');
+    } else {
+        notificationIndicator.classList.remove('element-hidden');
+    }
 }
 
 
@@ -510,3 +517,5 @@ closeNotificationBubbleBtn.addEventListener('click', closeNotificationBubble);
 function closeNotificationBubble() {
     notificationBubble.classList.add('element-hidden');
 }
+
+
