@@ -100,6 +100,7 @@ function checkModal(modal) {
     }
     if (modal === 'Time') {
         timeModal.classList.remove('element-hidden');
+        setCurrentCityTime(cityName);
     } else {
         timeModal.classList.add('element-hidden');
     }
@@ -518,4 +519,48 @@ function closeNotificationBubble() {
     notificationBubble.classList.add('element-hidden');
 }
 
+
+// ----- ⏰ TIME MODAL ⏰ -----
+
+// Search Clock
+const getTimeInput = document.getElementById('getTimeInput');
+const getTimeBtn = document.getElementById('getTimeBtn');
+
+getTimeBtn.addEventListener('click', function () {
+    if (getTimeInput.value) {
+        getLocationTime(getTimeInput.value);
+        getTimeInput.value = '';
+    } else {
+        return;
+    }
+})
+
+function getLocationTime(city) {
+
+}
+
+// User Location Clock
+const userClockFingerHours = document.getElementById('userClockFingerHours');
+const userClockFingerMinutes = document.getElementById('userClockFingerMinutes');
+const userClockFingerSeconds = document.getElementById('userClockFingerSeconds');
+
+let UTC;
+
+function setCurrentCityTime(city) {
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`)
+        .then(response => {
+            return response.json();
+        })
+        .then(data => {
+            console.log(data);
+            UTC = data.timezone;
+        })
+        .catch(error => {
+            console.error(error);
+        })
+}
+
+function updateModalUserClock(utc) {
+
+}
 
