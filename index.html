@@ -33,7 +33,7 @@
 
             <!-- User Modal -->
             <div id="userModal" class="modal-body element-hidden">
-                <div class="user-modal-inner">
+                <div class="user-modal-inner small-screen-align-center">
                     <div class="modal-box">
                         <h3 class="modal-box-header">Image</h3>
                         <div class="modal-box-content">
@@ -135,10 +135,67 @@
                 <p class="modal-description">Search for the current time from around the world.</p>
                 <div class="time-modal--input">
                     <p class="modal-search-text">Search City:</p>
-                    <input class="modal-search-input" type="text" placeholder="e.g. London" autocomplete="no">
-                    <button class="btn-dark modal-inner-btn">Search</button>
+                    <input id="getTimeInput" class="modal-search-input" type="text" placeholder="e.g. London"
+                        autocomplete="no">
+                    <button id="getTimeBtn" class="btn-dark modal-inner-btn">Search</button>
                 </div>
+
+                <div class="time-modal">
+                    <!-- Empty Box: -->
+                    <div class="time-modal--box">
+                        <div class="search-weather-placeholder">
+                            <i class="placeholder-icon fa-solid fa-magnifying-glass"></i>
+                            <p class="placeholder-text">Nothing to report...</p>
+                            <p class="placeholder-text">Try searching for a city...</p>
+                        </div>
+                    </div>
+
+                    <!-- User Search Box: -->
+                    <div class="time-modal--box element-hidden">
+                        <h3 class="time-modal--title">Tokyo</h3>
+                        <h4 class="time-modal--subtitle">Japan</h4>
+                        <div class="time-modal--results">
+                            <!-- CLOCK -->
+                            <div class="modal-box-content--top">
+                                <div class="clock-face">
+                                    <div class="clock-center"></div>
+                                    <div id="searchClockFingerHours" class="clock-finger clock-finger--hours"></div>
+                                    <div id="searchClockFingerMinutes" class="clock-finger clock-finger--minutes"></div>
+                                    <div id="searchClockFingerSeconds" class="clock-finger clock-finger--seconds"></div>
+                                </div>
+                            </div>
+                            <div class="modal-box-content--bottom">
+                                <p id="searchDateText" class="date-text">Wednesday 30 September, 2022.</p>
+                                <p id="searchTimeText" class="time-text">00:00:00</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- User Location Box: -->
+                    <div class="time-modal--box">
+                        <h3 class="time-modal--title">London</h3>
+                        <h4 class="time-modal--subtitle">UK</h4>
+                        <div class="time-modal--results">
+                            <!-- CLOCK -->
+                            <div class="modal-box-content--top">
+                                <div class="clock-face">
+                                    <div class="clock-center"></div>
+                                    <div id="userClockFingerHours" class="clock-finger clock-finger--hours"></div>
+                                    <div id="userClockFingerMinutes" class="clock-finger clock-finger--minutes"></div>
+                                    <div id="userClockFingerSeconds" class="clock-finger clock-finger--seconds"></div>
+                                </div>
+                            </div>
+                            <div class="modal-box-content--bottom">
+                                <p id="userDateText" class="date-text">Wednesday 30 September, 2022.</p>
+                                <p id="userTimeText" class="time-text">00:00:00</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
             </div>
+
             <!-- Weather Modal -->
             <div id="weatherModal" class="modal-body element-hidden">
                 <p class="modal-description">Search for weather reports from around the world.</p>
