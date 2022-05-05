@@ -145,6 +145,12 @@ html, body {
     background-color: var(--color-gray-dark);
 }
 
+.small-screen-align-center {
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+}
+
 /* Modal */
 .modal-background {
     background-color: black;
@@ -242,8 +248,8 @@ html, body {
 }
 
 
-/* Weather Modal */
-.weather-modal {
+/* Weather & Time Modals */
+.weather-modal, .time-modal {
     display: grid;
     grid-template-columns: repeat(2, auto);
     grid-template-rows: repeat(1, auto);
@@ -288,7 +294,7 @@ html, body {
     border-bottom: .1rem solid var(--color-dark);
 }
 
-.weather-modal--box {
+.weather-modal--box, .time-modal--box {
     background-color: var(--color-gray);
     padding: 2rem;
     display: flex;
@@ -296,7 +302,7 @@ html, body {
     align-items: center;
 }
 
-.weather-modal--title {
+.weather-modal--title, .time-modal--title {
     font-size: 1.8rem;
     font-weight: 600;
     color: var(--color-dark);
@@ -307,7 +313,7 @@ html, body {
     display: inline-block;
 }
 
-.weather-modal--subtitle {
+.weather-modal--subtitle, .time-modal--subtitle {
     font-size: 1.4rem;
     font-weight: 400;
     max-width: 80%;
@@ -318,11 +324,17 @@ html, body {
     padding-top: .5rem;
 }
 
-.weather-modal--results {
+.weather-modal--results, .time-modal--results {
     /* background-color: rgb(230, 230, 230); */
     display: grid;
     grid-template-columns: repeat(2, 14rem);
     grid-template-rows: repeat(2, 12rem);
+}
+
+.time-modal--results {
+    min-width: 30rem;
+    display: flex;
+    flex-direction: column;
 }
 
 .weather-modal--results-box {
@@ -367,13 +379,13 @@ html, body {
 }
 
 .placeholder-icon {
-    color: var(--color-gray-dark);
+    color: gray;
     font-size: 5rem;
     margin-bottom: 1rem;
 }
 
 .placeholder-text {
-    color: var(--color-gray-dark);
+    color: gray;
     font-size: 1.6rem;
     margin-top: 2rem;
     line-height: 1.5;
@@ -845,6 +857,30 @@ html, body {
     }
 }
 
+@media only screen and (max-width: 970px) {
+    .profile-modal-container {
+        background-color: white;
+        width: 100%;
+        min-height: 100vh;
+        /* height: 100%; */
+        /* min-height: 100vh; */
+        margin: 0 0;
+        border-radius: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translateX(0) translateY(0);
+        z-index: 150;
+    }
+    
+    .profile-modal-inner {
+        display: grid;
+        grid-template-columns: repeat(2, 21rem);
+        grid-template-rows: repeat(2, auto);
+        grid-gap: 1rem;
+    }
+}
+
 @media only screen and (max-width: 950px) {
     .box-container {
         grid-template-columns: repeat(11, 6rem);
@@ -939,7 +975,7 @@ html, body {
         grid-gap: 1rem;
     }
     /* Weather Modal */
-    .weather-modal {
+    .weather-modal, .time-modal {
         display: grid;
         grid-template-columns: repeat(1, auto);
         grid-template-rows: repeat(2, auto);
@@ -1031,7 +1067,7 @@ html, body {
 
   @media only screen and (max-width: 550px) {
     /* Weather Modal */
-    .weather-modal--input {
+    .weather-modal--input, .time-modal--input {
         flex-direction: column;
         margin-bottom: 3rem;
     }
@@ -1095,9 +1131,6 @@ html, body {
 
 
   @media only screen and (max-width: 500px) {
-    
-
-
     /* Universal */
     .btn-round {
         width: 3.5rem;
